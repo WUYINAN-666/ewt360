@@ -224,7 +224,8 @@ class EWT_Functions(object):
     def get_bfe_secret_v3(self):
         try:
             res = requests.get(
-                url = f"https://web.ewt360.com/api/videoplayerprod/videoplayer/getPlayerGlobalConf?videoBizCode=1001&sdkVersion=3.0.8&_={now_timestamp()}",
+                
+                url = f"https://web.ewt360.com/api/videoplayerprod/videoplayer/getPlayerGlobalConf?videoBizCode=1001&sdkVersion=3.0.19&_={now_timestamp()}",
                 headers={
                     "Token": self.token,
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30"
@@ -242,12 +243,12 @@ class EWT_Functions(object):
             self.error_handling(5,5005,res.text)
     
 
-    # 对应 SDK3.0.8
+    # 对应 SDK3.0.19
     def uploadprogress_v3(self,secret,x_bfe_session_id,begin_time,report_time,lesson_id,course_id,i,action,duration):
 
         uuid = ''.join(random.sample(string.ascii_letters + string.digits, 8))+"_"+str(i) #生成uuid，格式：8位随机字符串+下划线+上报index
         _ts = now_timestamp()
-        url = "https://bfe.ewt360.com/monitor/web/collect/batch?"+f'TrVideoBizCode=1013&TrFallback=0&TrUserId={self.userid}&TrLessonId={lesson_id}&TrUuId={uuid}&sdkVersion=3.0.8&_={_ts}'
+        url = "https://bfe.ewt360.com/monitor/web/collect/batch?"+f'TrVideoBizCode=1013&TrFallback=0&TrUserId={self.userid}&TrLessonId={lesson_id}&TrUuId={uuid}&sdkVersion=3.0.19&_={_ts}'
         header = {
             "access-control-allow-origin": "*",
             "content-type": "application/json",
@@ -273,7 +274,7 @@ class EWT_Functions(object):
                 "browser": "Chrome",
                 "browser_ver": "5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.30",
                 "playerType": 1,
-                "sdkVersion": "3.0.8",
+                "sdkVersion": "3.0.19",
                 "videoBizCode": "1013"
             },
             "EventPackage":

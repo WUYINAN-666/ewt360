@@ -146,8 +146,8 @@ class MyWindow(QMainWindow,Ui_MainWindow,Ewt_upload_progress):
             self.add_log("[Warning] Speed cannot be greater than 2 or less than 1")
             self.lock_login_form(True)
             return
-        if task_advance_day>1:
-            self.add_log("[Warning] Advance Day cannot be greater than 1")
+        if task_advance_day>10:
+            self.add_log("[Warning] Advance Day cannot be greater than 10")
             self.lock_login_form(True)
             return
         
